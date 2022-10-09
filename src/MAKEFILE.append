@@ -1,0 +1,9 @@
+
+kitty-decryptpassword.exe: kitty_crypt.o
+	$(CC) -mwindows $(LDFLAGS) -o $@ \
+		kitty-decryptpassword-main.c \
+		kitty_crypt.o \
+		../../bcrypt/bcrypt.a
+
+kitty-decryptpassword:
+	make -e TOOLPATH=/usr/bin/i686-w64-mingw32- -f MAKEFILE.MINGW kitty-decryptpassword.exe
